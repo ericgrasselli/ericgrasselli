@@ -1,0 +1,29 @@
+---
+- name: Preparing Workstation
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Installing Linux Apps
+      become: true
+      apt:
+        name: '{{ item }}'
+        install_recommends: yes
+        state: present
+      loop:
+        - vim
+        - htop
+        - curl
+        - wget
+        - tree
+        - bash-completion
+        - keychain
+        - python
+        - flameshot
+        - tilix
+        - mlocate
+        - mtr
+        - nmap
+        - gnome-tweak-tool
+        - notepadqq
+        - net-tools
+- block:
